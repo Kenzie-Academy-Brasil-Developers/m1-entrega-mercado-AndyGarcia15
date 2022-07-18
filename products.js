@@ -1,4 +1,4 @@
-const products = [
+        const products = [
   {
     title: "Uva Crimson",
     price: 8.99,
@@ -88,3 +88,81 @@ const products = [
     imageDescription: "",
   },
 ];
+
+function createElement(){
+  
+}
+function category(arr){
+  
+
+  for(let i = 0; i < arr.length; i++){
+    let main = 0;
+      if(arr[i].category == 'Frutas'){
+        main = document.querySelector('.fruits ul')
+      }
+      if(arr[i].category == 'Bebidas'){
+        main = document.querySelector('.drinks ul')
+      }
+      if(arr[i].category == 'Higiene'){
+        main = document.querySelector('.hygiene ul')
+      }
+      
+      
+      
+
+      const li = document.createElement('li');
+      li.className = 'product';
+
+      // img
+      const img = document.createElement('img');
+      img.className = 'product-img';
+      if(arr[i].image == undefined){
+        img.src = './img/products/no-img.svg' // img padrão 
+      }
+      else {
+        img.src = arr[i].image
+      }
+      // main product recebe h1 h5 strong
+      const mainProduct = document.createElement('main');
+      mainProduct.className = 'product-main';
+    
+      // h1 
+      const h1 = document.createElement('h1');
+      h1.className = 'product-title';
+      h1.textContent = arr[i].title;
+
+      //h5
+      const h5 = document.createElement('h5');
+      h5.className = 'product-category';
+      h5.textContent = arr[i].category;
+
+      // strong
+      const strong = document.createElement('strong');
+      strong.className = 'product-price';
+      strong.textContent = arr[i].price;
+
+      // incorporando 
+      mainProduct.appendChild(h1)
+      mainProduct.appendChild(h5)
+      mainProduct.appendChild(strong)
+
+      li.appendChild(img)
+      li.appendChild(mainProduct)
+      main.appendChild(li)
+      
+      
+    
+      
+
+    }
+  }
+  category(products)
+console.log(
+  document.querySelector('.fruits ')
+)
+ 
+  
+
+
+
+
